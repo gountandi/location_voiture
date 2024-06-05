@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->integer('salaire');
             $table->string('poste');
+            $table->integer('per_id');
+            $table->foreign('per_id')->references('id')->on('personne'); 
             $table->timestamps();
           
         });

@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('client', function (Blueprint $table) {
             $table->id();
-            $table->string('numero_carte')->unique(); 
+            $table->string('numero_carte')->unique();
+            $table->integer('user_id');
+            $table->foreign('user_id')->references('id')->on('users'); 
             $table->timestamps();
         });
     }
