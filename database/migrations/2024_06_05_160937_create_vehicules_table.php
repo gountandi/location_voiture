@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('vehicule', function (Blueprint $table) {
+        Schema::create('vehicules', function (Blueprint $table) {
             $table->id();
             $table->string('type');
             $table->integer('tarif');
@@ -22,7 +22,7 @@ return new class extends Migration
             $table->integer('caution_de_base');
             $table->string('etat');
             $table->integer('location_id');
-            $table->foreign('location_id')->references('id')->on('location');
+            $table->foreign('location_id')->references('id')->on('locations');
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('vehicule');
+        Schema::dropIfExists('vehicules');
     }
 };

@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('retard', function (Blueprint $table) {
+        Schema::create('locations', function (Blueprint $table) {
             $table->id();
-            $table->date('date_absence');
-            $table->string('heure');
-            $table->string('justificatif');
-            $table->integer('emp_id');
-            $table->foreign('emp_id')->references('id')->on('employer');
+            $table->date('date_debut');
+            $table->date('date_fin');
+            $table->string('etat_final');
+            $table->integer('client_id');
+            $table->foreign('client_id')->references('id')->on('clients');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('retard');
+        Schema::dropIfExists('locations');
     }
 };

@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('client', function (Blueprint $table) {
+        Schema::create('retards', function (Blueprint $table) {
             $table->id();
-            $table->string('numero_carte')->unique();
-            $table->integer('user_id');
-            $table->foreign('user_id')->references('id')->on('users'); 
+            $table->date('date_absence');
+            $table->string('heure');
+            $table->string('justificatif');
+            $table->integer('emp_id');
+            $table->foreign('emp_id')->references('id')->on('employers');
             $table->timestamps();
         });
     }
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('client');
+        Schema::dropIfExists('retards');
     }
 };

@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('absence', function (Blueprint $table) {
+        Schema::create('employers', function (Blueprint $table) {
             $table->id();
-            $table->date('date_absence');
-            $table->string('justificatif');
-            $table->integer('emp_id');
-            $table->foreign('emp_id')->references('id')->on('employer');
+            $table->integer('salaire');
+            $table->string('poste');
+            $table->integer('per_id');
+            $table->foreign('per_id')->references('id')->on('personnes'); 
             $table->timestamps();
+          
         });
     }
 
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('absence');
+        Schema::dropIfExists('employers');
     }
 };
