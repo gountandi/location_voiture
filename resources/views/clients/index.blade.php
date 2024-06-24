@@ -8,7 +8,7 @@
 <body>
     
     <h1>{{$title}}</h1>
-    <form action="{{route('entreprises.create')}}" method="get">
+    <form action="{{route('clients.create')}}" method="get">
         @csrf
         <button type="submit" style="background-color: aqua; color:white;padding:3px;">Ajouter</button>
     </form>   
@@ -17,34 +17,25 @@
         <thead>
 
             <tr>
-                <th>name</th>
-                <th>country</th>
-                <th>town</th>
-                <th>neighborhood</th>
-                <th>adresse</th>
-                <th>user</th>
-                <th> Actions</th>
+                <th>numero_carte</th>
+                <th>user_id</th>
             </tr>
         </thead>
         <tbody>
-            @forelse($liste_entreprises as $une_entreprise)
+            @forelse($liste_clients as $un_client)
             
             <tr>
-                <td>{{$une_entreprise->name}}</td>
-                <td>{{$une_entreprise->country}}</td>
-                <td>{{$une_entreprise->town}}</td>
-                <td>{{$une_entreprise->neighborhood}}</td>
-                <td>{{$une_entreprise->adresses}}</td>
-                <td>{{$une_entreprise->user->name}}</td>
+                <td>{{$un_client->numero_carte}}</td>
+                <td>{{$un_client->user->name}}</td>
                 <td>
-                        <a href="{{route('entreprises.edit',$une_entreprise)}}">
+                        <a href="{{route('clients.edit',$un_client)}}">
                         <button type="submit" style="background-color: blue; color:white;padding:3px;">Editer</button>
                         </a>
                       
                       
 
 
-                    <form action="{{route('entreprises.destroy',$une_entreprise)}}" method="post">
+                    <form action="{{route('clients.destroy',$un_client)}}" method="post">
 
                         @csrf
                         @method("DELETE")

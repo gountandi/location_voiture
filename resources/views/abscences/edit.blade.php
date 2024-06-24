@@ -17,56 +17,33 @@
 
         <h3>Update Entreprise</h3>
         {{ dump($entreprise) }}
-        <form action="{{ route('entreprises.store') }}" method="post">
+        <form action="{{ route('abscences.store') }}" method="post">
             @csrf
-            <div class="entreprise">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" value="{{ old('name')??$entreprise->name}}" class=" @error('name') failed_input @enderror">
-            @error('name')
+            <div class="abscence">
+            <label for="date_absence">Date_absence</label>
+            <input type="text" id="date_absence" name="date_absence" value="{{ old('date_absence')??$abscence->date_absence}}" class=" @error('date_absence') failed_input @enderror">
+            @error('date_absence')
+                <br>
+                <span style="color: red;"> champ requis</span>
+            @enderror
+            </div>
+            <div class="abscence">
+            <label for="justificatif">Justificatif</label>
+            <input type="text" id="justificatif" name="justificatif" value="{{ old('justificatif')??$abscence->justificatif}}" class=" @error('justificatif') failed_input @enderror">
+            @error('justificatif')
                 <br>
                 <span style="color: red;"> champ requis</span>
             @enderror
             </div>
             <div class="entreprise">
-            <label for="country">Country</label>
-            <input type="text" id="country" name="country" value="{{ old('country')??$entreprise->name}}" class=" @error('name') failed_input @enderror">
-            @error('country')
+            <label for="emp_id">Emp_id</label>
+            <input type="text" id="emp_id" name="emp_id" value="{{ old('emp_id')??$abscence->emp_id}}"  class=" @error('emp_id') failed_input @enderror">
+            @error('emp_id')
                 <br>
                 <span style="color: red;"> champ requis</span>
             @enderror
             </div>
-            <div class="entreprise">
-            <label for="town">Town</label>
-            <input type="text" id="town" name="town" value="{{ old('town')??$entreprise->name}}"  class=" @error('name') failed_input @enderror">
-            @error('town')
-                <br>
-                <span style="color: red;"> champ requis</span>
-            @enderror
-            </div>
-            <div class="entreprise">
-            <label for="neighborhood">Neighborhood</label>
-            <input type="text" id="neighborhood" name="neighborhood" value="{{ old('neighborhood')??$entreprise->name}}"  class=" @error('name') failed_input @enderror">
-            @error('neighborhood')
-                <br>
-                <span style="color: red;"> champ requis</span>
-            @enderror
-            </div>
-            <div class="entreprise">
-            <label for="adresses">Adresses</label>
-            <input type="text" id="adresses" name="adresses"  value="{{ old('adresses')??$entreprise->name}}" class=" @error('name') failed_input @enderror">
-            @error('adresses')
-                <br>
-                <span style="color: red;"> champ requis</span>
-            @enderror
-            </div>
-            <div class="entreprise">
-            <label for="user_name">user_name</label>
-            <input type="number" id="user_name" name="user_id" value="{{ old('user_id')??$entreprise->user->name}}"  class=" @error('name') failed_input @enderror">
-            @error('user_name')
-                <br>
-                <span style="color: red;"> champ requis</span>
-            @enderror
-            </div>
+           
             <button type="submit" >Create</button>
         </form>
         </div>

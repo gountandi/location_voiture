@@ -8,7 +8,7 @@
 <body>
     
     <h1>{{$title}}</h1>
-    <form action="{{route('entreprises.create')}}" method="get">
+    <form action="{{route('abscences.create')}}" method="get">
         @csrf
         <button type="submit" style="background-color: aqua; color:white;padding:3px;">Ajouter</button>
     </form>   
@@ -17,34 +17,30 @@
         <thead>
 
             <tr>
-                <th>name</th>
-                <th>country</th>
-                <th>town</th>
-                <th>neighborhood</th>
-                <th>adresse</th>
-                <th>user</th>
-                <th> Actions</th>
+                <th>date_absence</th>
+                <th>justificatif</th>
+                <th>employer</th>
+                
             </tr>
         </thead>
         <tbody>
-            @forelse($liste_entreprises as $une_entreprise)
+            @forelse($liste_abscence as $une_abscence)
             
             <tr>
-                <td>{{$une_entreprise->name}}</td>
-                <td>{{$une_entreprise->country}}</td>
-                <td>{{$une_entreprise->town}}</td>
-                <td>{{$une_entreprise->neighborhood}}</td>
-                <td>{{$une_entreprise->adresses}}</td>
-                <td>{{$une_entreprise->user->name}}</td>
+                <td>{{$une_abscence->date_absence}}</td>
+                <td>{{$une_abscence->justificatif}}</td>
+                <td>{{$une_abscence->employer->name}}</td>
+                
                 <td>
-                        <a href="{{route('entreprises.edit',$une_entreprise)}}">
+                        <a href="{{route('abscences.edit',$une_abscence)}}">
                         <button type="submit" style="background-color: blue; color:white;padding:3px;">Editer</button>
                         </a>
                       
                       
+                        <th>date_absence</th>
 
 
-                    <form action="{{route('entreprises.destroy',$une_entreprise)}}" method="post">
+                    <form action="{{route('abscences.destroy',$une_abscence)}}" method="post">
 
                         @csrf
                         @method("DELETE")
