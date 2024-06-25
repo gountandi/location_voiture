@@ -17,25 +17,19 @@
         <thead>
 
             <tr>
-                <th>name</th>
-                <th>country</th>
-                <th>town</th>
-                <th>neighborhood</th>
-                <th>adresse</th>
-                <th>user</th>
-                <th> Actions</th>
+                <th>salaire</th>
+                <th>poste</th>
+                <th>personne</th>
+               
             </tr>
         </thead>
         <tbody>
             @forelse($liste_entreprises as $une_entreprise)
             
             <tr>
-                <td>{{$une_entreprise->name}}</td>
-                <td>{{$une_entreprise->country}}</td>
-                <td>{{$une_entreprise->town}}</td>
-                <td>{{$une_entreprise->neighborhood}}</td>
-                <td>{{$une_entreprise->adresses}}</td>
-                <td>{{$une_entreprise->user->name}}</td>
+                <td>{{$une_entreprise->salaire}}</td>
+                <td>{{$une_entreprise->poste}}</td>
+                <td>{{$une_entreprise->personne->name}}</td>
                 <td>
                         <a href="{{route('entreprises.edit',$une_entreprise)}}">
                         <button type="submit" style="background-color: blue; color:white;padding:3px;">Editer</button>
