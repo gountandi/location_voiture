@@ -15,7 +15,10 @@ return new class extends Migration
             $table->id();
             $table->date('date_debut');
             $table->date('date_fin');
+            $table->string('etat_initial');
             $table->string('etat_final');
+            $table->boolean('valider_location');
+            $table->boolean('a_ete_restituer');
             $table->integer('client_id');
             $table->foreign('client_id')->references('id')->on('clients');
             $table->timestamps();

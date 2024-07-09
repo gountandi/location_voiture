@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('absences', function (Blueprint $table) {
+        Schema::create('payements', function (Blueprint $table) {
             $table->id();
-            $table->date('date_absence');
-            $table->string('justificatif');
-            $table->integer('emp_id');
-            $table->foreign('emp_id')->references('id')->on('employers');
+            $table->integer("montant");
+            $table->enum("moyenPayement",['liquide','visa','mobalMoney']);
             $table->timestamps();
+            
         });
     }
 
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('absences');
+        Schema::dropIfExists('payements');
     }
 };
